@@ -7,7 +7,8 @@ This repository contains ROS2 support packages for the Ranger robot bases to pro
 * Ranger Mini V1.0
 <img src="./docs/ranger_mini_v1.png" width="350" />
 
-* Ranger Mini V2.0
+* Ranger Mini V2.0 and V3.0 
+
 <img src="./docs/ranger_mini_v2.png" width="350" />
 
 * Ranger
@@ -19,6 +20,7 @@ This repository contains ROS2 support packages for the Ranger robot bases to pro
 
 ```bash
 $ sudo apt install libasio-dev libboost-all-dev
+$ sudo apt install -y ros-$ROS_DISTRO-teleop-twist-keyboard
 ```
 
 2. Clone and build the packages in a workspace
@@ -58,22 +60,28 @@ $ colcon build
 * Start the base node for ranger
 
     ```shell
-    $ ros2 launch ranger_bringup ranger.launch #for ranger
+    $ ros2 launch ranger_bringup ranger.launch.py #for ranger
     ```
 
 * Start the base node for ranger_mini_v1
 
     ```shell
-    $ ros2 launch ranger_bringup ranger_mini_v1.launch #for ranger_mini 1.0
+    $ ros2 launch ranger_bringup ranger_mini_v1.launch.py #for ranger_mini 1.0
     ```
 
 * Start the base node for ranger_mini_v2
 
     ```bash
-    $ ros2 launch ranger_bringup ranger_mini_v2.launch #for ranger_mini 2.0
+    $ ros2 launch ranger_bringup ranger_mini_v2.launch.py #for ranger_mini 2.0
     ```
     
-* Start the keyboard tele-op node
+* Start the base node for ranger_mini_v3
+
+    ```bash
+    $ ros2 launch ranger_bringup ranger_mini_v3.launch.py #for ranger_mini 3.0
+    ```
+    
+* Use keyboard to control ranger
 
     ```bash
     $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
@@ -84,7 +92,7 @@ $ colcon build
 ### Parameters
 
 * can_device (string): **can0**
-* robot_model (string): **ranger**/ranger_mini_v1/ranger_mini_v2
+* robot_model (string): **ranger**/ranger_mini_v1/ranger_mini_v2/ranger_mini_v3
 * update_rate (int): **50**
 * base_frame (string): **base_link**
 * odom_frame (string): **odom**
